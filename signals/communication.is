@@ -1,0 +1,7 @@
+Kv.Listen("1/3/30")
+	(val, time) =>
+		Central.Route("Lampa", val, time)
+Central.Period(1000)
+	Central.Proxy(235)
+		(val) =>
+			Kv.Send("1/3/30", val)

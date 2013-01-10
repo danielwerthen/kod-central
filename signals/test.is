@@ -1,0 +1,11 @@
+Central.Period(1000)
+	Central.Map(["/lampa1", "/lampa2", "/lampa3"])
+		(url) => 
+			Central.Random()
+				(val) =>
+					Central.Publish(url,val)
+Central.Map(["/lampa1", "/lampa2", "/lampa3"])
+	(url) =>
+		Central.Listen(url)
+			(val, dt) =>
+				Central.Route(url, val, dt)
