@@ -1,3 +1,0 @@
-Kv.Listen("1/3/30")
-	(val, time) =>
-		Central.Route("Lampa", val, time)
