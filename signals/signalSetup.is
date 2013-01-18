@@ -1,0 +1,13 @@
+.Extender.SendAll()
+	(signal, name) =>
+		.Extendee.Handle("loaded", signal, name)
+
+.Extendee.Request()
+	.Extender.SendAll()
+		(signal, name) =>
+			.Extendee.Handle("loaded", signal, name)
+
+.Extender.Listen()
+	(event, signal, name) =>
+		.Extendee.Handle(event, signal, name)
+

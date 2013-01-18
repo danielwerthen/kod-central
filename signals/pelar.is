@@ -1,6 +1,9 @@
 Central.Listen("/Pelare")
 	(val, time) =>
 		Kv.Send("1/4/30", val)
+Central.Listen("/Pelare2")
+	(val, time) =>
+		Kv.Send("1/4/31", val)
 Kv.Listen("1/0/81")
 	(val, time) =>
 		Central.Publish("/Tavla", val)

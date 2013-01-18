@@ -3,6 +3,7 @@ var Flux = require('flux')
 	, _ = require('underscore')
 	, express = require('express')
 	, app = express()
+	, se = require('./signalExtender')
 
 var flux = new Flux();
 
@@ -10,6 +11,7 @@ app.use(flux.duplex());
 app.use(express.bodyParser());
 
 var node = flux.createNode('Central');
+se.register(flux);
 //Proxied supposedly
 //flux.addRemoteNode({ url: "http://192.168.1.110:3000", protocol: "duplex" }, "Kv", "Knx" );
 
@@ -54,9 +56,13 @@ node.addFunction('Listen', function (url, cb) {
 		res.end("{ result: 'OK' }");
 	};
 	var id = 0;
-	setInterval(function () {
+	var interv = setInterval(function () {
 		cb(id++, new Date());
 	}, 1000);
+	this.on('stop', function () {
+		console.log('stop');
+		clearInterval(interv);
+	});
 });
 
 node.addFunction('Route', function  (url, val, dt, cb) {
