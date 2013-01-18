@@ -53,6 +53,10 @@ node.addFunction('Listen', function (url, cb) {
 		res.writeHead(200, { 'Content-Type': 'application/json' });
 		res.end("{ result: 'OK' }");
 	};
+	var id = 0;
+	setInterval(function () {
+		cb(id++, new Date());
+	}, 1000);
 });
 
 node.addFunction('Route', function  (url, val, dt, cb) {
