@@ -50,19 +50,18 @@ node.addFunction('Publish', function (path, value, cb) {
 var listeners = {};
 node.addFunction('Listen', function (url, cb) {
 	listeners[url] = function (req, res) {
-		console.dir(req.body);
 		cb(req.body.value, new Date());
 		res.writeHead(200, { 'Content-Type': 'application/json' });
 		res.end("{ result: 'OK' }");
 	};
-	var id = 0;
+	/*var id = 0;
 	var interv = setInterval(function () {
 		cb(id++, new Date());
 	}, 100);
 	this.on('stop', function () {
 		console.log('stop');
 		clearInterval(interv);
-	});
+	});*/
 });
 
 node.addFunction('Route', function  (url, val, dt, cb) {
