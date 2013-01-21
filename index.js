@@ -58,7 +58,7 @@ node.addFunction('Listen', function (url, cb) {
 	var id = 0;
 	var interv = setInterval(function () {
 		cb(id++, new Date());
-	}, 1000);
+	}, 100);
 	this.on('stop', function () {
 		console.log('stop');
 		clearInterval(interv);
