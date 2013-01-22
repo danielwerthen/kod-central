@@ -1,3 +1,4 @@
+console.dir(process.env.PORT);
 require('./index')
 
 return;
