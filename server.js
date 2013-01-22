@@ -1,10 +1,9 @@
-require('./index')
+//require('./index')
 
-return;
 var http = require('http')
 	, fs = require('fs')
 	, path = require('path')
-	, root = __dirname
+	, root = path.dirname(process.argv[1])
 
 http.createServer(function (req, res) {
 	res.writeHead(200, { 'Content-Type': 'text/plain' });
