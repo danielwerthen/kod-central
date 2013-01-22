@@ -2,7 +2,7 @@ var fs = require('fs')
 	, http = require('http')
 	, path = require('path')
 	, _ = require('underscore')
-	, root = path.dirname(require.main.filename)
+	, root = __dirname
 	, dir = path.join(root, '/signals')
 
 http.createServer(function (req, res) {
