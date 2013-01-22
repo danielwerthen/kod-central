@@ -7,6 +7,7 @@ var Flux = require('flux')
 
 var flux = new Flux();
 
+
 app.use(flux.duplex());
 app.use(express.bodyParser());
 
