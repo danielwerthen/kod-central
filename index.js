@@ -43,7 +43,7 @@ node.addFunction('Proxy', function (data, cb) {
 var values = {};
 node.addFunction('Publish', function (path, value, cb) {
 	console.log("Received: " + value);
-	values[path] = value;
+	values[path] = { value: value };
 	cb();
 });
 
