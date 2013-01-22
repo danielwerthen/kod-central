@@ -1,5 +1,6 @@
-//require('./index')
+require('./index')
 
+return;
 var http = require('http')
 	, fs = require('fs')
 	, path = require('path')
