@@ -10,7 +10,7 @@ http.createServer(function (req, res) {
 	res.write(dir);
 	fs.readdir(root, function (err, files) {
 		res.write(JSON.stringify(_.keys(require.main)));
-		res.write(JSON.stringify(require.main.children));
+		res.write(JSON.stringify(_.keys(require.main.children)));
 		res.end(JSON.stringify(files));
 	});
 }).listen(process.env.PORT || 3040);
