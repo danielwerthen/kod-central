@@ -8,9 +8,9 @@ var fs = require('fs')
 http.createServer(function (req, res) {
 	res.writeHead(200, { 'Content-Type': 'text/plain' });
 	res.write(dir);
-	fs.readdir(dir, function (err, files) {
+	fs.readdir(root, function (err, files) {
 		res.write(JSON.stringify(_.keys(require.main)));
-		res.write(JSON.stringify(require.main.paths));
+		res.write(JSON.stringify(require.main.children));
 		res.end(JSON.stringify(files));
 	});
 }).listen(process.env.PORT || 3040);
