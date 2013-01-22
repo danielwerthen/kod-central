@@ -5,6 +5,9 @@ var fs = require('fs')
 	, dir = root + '/signals'
 
 http.createServer(function (req, res) {
+	res.writeHead(200, { 'Content-Type': 'text/plain' });
+	res.end(dir);
+	return;
 	fs.readdir(dir, function (err, files) {
 		res.end(JSON.stringify(files));
 	});
