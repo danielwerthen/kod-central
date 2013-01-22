@@ -7,8 +7,7 @@ app.get('/', function (req, res) {
 
 app.listen(process.env.PORT);
 //require('./index')
-
-//return;
+return;
 var http = require('http')
 	, fs = require('fs')
 	, path = require('path')
