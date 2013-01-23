@@ -4,9 +4,13 @@ var http = require('http')
 
 http.createServer(function (req, res) {
 	res.writeHead(200, { 'Content-Type': 'text/plain' });
-	setInterval(function () {
-		res.write('Hello');
+	var inte = setInterval(function () {
+		res.write('Hello\r\n');
 	}, 500);
+	setTimeout(function () {
+		clearInterval(inte);
+		res.end();
+	}, 5050);
 }).listen(process.env.PORT || 3000);
 
 /*return;
