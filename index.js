@@ -81,6 +81,10 @@ app.use(function (req, res, next) {
 		next();
 });
 
+app.get('/', function (req, res) {
+	res.send('Hello');
+});
+
 flux.start();
 console.log('Central is running');
 app.listen(process.env.PORT || 3000);
