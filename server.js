@@ -1,12 +1,3 @@
-console.dir(process.env.PORT);
-/*var express = require('express');
-var app = express();
-app.get('/', function (req, res) {
-	res.send('hello');
-});
-
-app.listen(process.env.PORT);*/
-
 require('./index')
 return;
 var http = require('http')
