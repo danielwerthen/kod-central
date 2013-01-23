@@ -6,8 +6,14 @@ app.get('/', function (req, res) {
 });
 
 app.listen(process.env.PORT);*/
+var http = require('http');
 
-require('./index')
+http.createServer(function (req, res) {
+	res.writeHead(200, { 'Content-Type': 'text/plain'});
+	res.end("Tse");
+}).listen(process.env.PORT);
+
+//require('./index')
 return;
 var http = require('http')
 	, fs = require('fs')
