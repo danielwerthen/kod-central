@@ -7,9 +7,9 @@ http.createServer(function (req, res) {
 	setInterval(function () {
 		res.write('Hello');
 	}, 500);
-});
+}).listen(process.env.PORT || 3000);
 
-return;
+/*return;
 var http = require('http')
 	, fs = require('fs')
 	, path = require('path')
@@ -24,4 +24,4 @@ http.createServer(function (req, res) {
 		});
 	});
 }).listen(process.env.PORT || 3040);
-
+*/
