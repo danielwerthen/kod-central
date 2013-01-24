@@ -3,10 +3,10 @@ Central.Listen("/Pelare")
 		KNX.Send("1/4/30", val)
 KNX.Listen("1/0/81")
 	(val, time) =>
-		Central.Publish("/Tavla", val)
+		Central.Send("/Tavla", val)
 KNX.Listen("1/4/30")
 	(val, time) =>
-		Central.Publish("/PelareF", val)
+		Central.Send("/PelareF", val)
 Central.Listen("/Pelare2")
 	(val, time) =>
 		KNX.Send("1/4/30", val)
