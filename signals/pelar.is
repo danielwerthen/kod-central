@@ -1,6 +1,10 @@
 Central.Listen("/Pelare")
 	(val, time) =>
 		KNX.Send("1/4/30", val)
+Central.Listen("/Pelare/On")
+	KNX.Send("1/4/30", 1)
+Central.Listen("/Pelare/Off")
+	KNX.Send("1/4/30", 0)
 KNX.Listen("1/0/81")
 	(val, time) =>
 		Central.Send("/Tavla", val)
