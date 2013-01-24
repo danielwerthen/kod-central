@@ -50,6 +50,7 @@ node.addFunction('Send', function (path, value, cb) {
 
 var listeners = {};
 node.addFunction('Listen', function (url, cb) {
+	console.log('Listening to ' + url);
 	listeners[url] = function (req, res) {
 		cb(req.body.value, new Date());
 		res.writeHead(200, { 'Content-Type': 'application/json' });
@@ -74,7 +75,7 @@ app.use(function (req, res, next) {
 		res.writeHead(200, { 'Content-Type': 'application/json' });
 		res.end(JSON.stringify(values[req.url]));
 	}
-	else if (req.method === 'POST' && listeners[req.url]) {
+	else if (listeners[req.url]) {
 		listeners[req.url](req, res);
 	}
 	else
